@@ -1,20 +1,27 @@
 FROM python:3.11.2
-MAINTAINER Alex Maximchik 'alex@mail.ru'
 
 SHELL ["/bin/bash", "-c"]
 
 # set the environment variables
-ENV PYTHONDONTWRITEBYTECODE 1 # no create cash
-ENV PYTHONUNBUFFERED 1 # Force the stdout and stderr streams to be unbuffered
+ENV PYTHONFAULTHANDLER=1 \
+  PYTHONUNBUFFERED=1 \
+  PYTHONHASHSEED=random \
+  PIP_NO_CACHE_DIR=off \
+  PIP_DISABLE_PIP_VERSION_CHECK=on \
+  PIP_DEFAULT_TIMEOUT=100 \
+  POETRY_VERSION=1.4.2
 
 RUN pip install --upgrade pip
+RUN pip install "poetry==$POETRY_VERSION"
 RUN useradd -rms /bin/bash horoscope && chmod 777 /opt /run
+
 
 # mkdir + cd
 WORKDIR /app
 
 RUN chown -R horoscope:horoscope /app && chmod 755 /app
 
-COPY --chown=horoscope horoscope_project .
+COPY --chown=horoscope . .
 
-RUN pip install -r requirements.txt
+RUN poetry config virtualenvs.create false && poetry config installer.max-workers 10 \
+&& poetry install --no-root
