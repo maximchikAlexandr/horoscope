@@ -5,7 +5,7 @@ services:
     image: postgres:15
     container_name: horoscope_postgres
     volumes:
-      - ./db:/var/lib/postgresql/data
+      - ../horoscope_db:/var/lib/postgresql/data
     env_file:
       - .env
     environment:
