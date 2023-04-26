@@ -1,0 +1,18 @@
+uses:
+  - django
+
+pylint:
+  disable:
+    - django-not-configured
+    - import-outside-toplevel
+    - unused-import
+    - arguments-differ
+pyflakes:
+  disable:
+    - F401
+
+ignore-patterns:
+  - .*migrations
+
+ignore-paths:
+  - db
