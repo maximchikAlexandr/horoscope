@@ -6,7 +6,7 @@ from django.core.management import call_command
 from horoscope_project.settings import BASE_DIR
 from horoscope_app.apps import HoroscopeAppConfig
 
-fixture = f"{BASE_DIR}/horoscope_app/migrations/fixtures/dump_db.json"
+fixture = BASE_DIR / "horoscope_app/migrations/fixtures/dump_db.json"
 
 
 def load_fixture(apps, schema_editor):
