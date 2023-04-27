@@ -21,6 +21,8 @@ class HoroscopeView(TemplateView):
     """For horoscope of zodiac sign"""
     template_name = "horoscope_app/detail_horoscope.html"
 
-    def get(self, request: WSGIRequest, zodiac_sign: str, *args) -> HttpResponse:
+    def get(self, request: WSGIRequest, zodiac_sign: str, *args, **kwargs) -> HttpResponse:
+        if zodiac_sign == 'favicon.ico':
+            return render(request, self.template_name)
         return render(request, self.template_name,
                       {'horoscope': hor_src.get_horoscope(zodiac_sign)})
