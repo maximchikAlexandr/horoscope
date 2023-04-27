@@ -24,4 +24,4 @@ RUN chown -R horoscope:horoscope /app && chmod 755 /app
 COPY --chown=horoscope . .
 
 RUN poetry config virtualenvs.create false && poetry config installer.max-workers 10 \
-&& poetry install --no-root
+&& poetry install --no-root --without dev
