@@ -20,11 +20,10 @@ class HoroscopeSource:
         return Zodiac.objects.all()
 
     def get_horoscope(self, zodiac_name: str) -> Dict[str, str]:
-        """Проверяем актуальность гороскопов и возвращаем гороскоп
-        по знаку зодиака"""
+        """Method checks relevance of the horoscopes and return the horoscope by zodiac sign"""
         if not self.__is_actual_horoscope():
             self.__get_horoscope_from_internet()
-        zodiac = Zodiac.objects.filter(latin_name=zodiac_name)[0]
+        zodiac = Zodiac.objects.get(latin_name=zodiac_name)
         return {
             "russian_name": zodiac.russian_name,
             "horoscope": self.__create_horoscope_dict(zodiac_name),
