@@ -18,11 +18,11 @@ sqlparse = "0.4.3"
 urllib3 = "1.26.14"
 xmltodict = "0.13.0"
 django-environ = "^0.10.0"
-pytest-django = "^4.5.2"
 
 
 [tool.poetry.group.dev.dependencies]
 prospector = "^1.9.0"
+pytest-django = "^4.5.2"
 
 [build-system]
 requires = ["poetry-core"]
