@@ -1,3 +1,4 @@
+
 # Horoscope
 
 ## Installation
@@ -8,14 +9,14 @@ Clone the repository from GitHub:
 git clone https://github.com/maximchikAlexandr/horoscope.git
 ```
 
-Create a file .env in the root directory:
+Create a file named '.env' in the root directory:
 
 ```sh
 cd horoscope/
 nano .env
 ```
 
-and fill the following environment variables:
+and fill it with the following environment variables:
 
 ```sh
 DB_ENGINE='django.db.backends.postgresql_psycopg2'
