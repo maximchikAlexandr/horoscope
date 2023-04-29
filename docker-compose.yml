@@ -5,11 +5,17 @@ services:
     image: postgres:15
     container_name: horoscope_postgres
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - ../horoscope_db:/var/lib/postgresql/data
     env_file:
       - .env
     environment:
       POSTGRES_INITDB_ARGS: "-A md5"
+    ports:
+      - "${DB_OUT_PORT}:${DB_PORT}"
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "${POSTGRES_USER}" ]
+      interval: 10s
+      retries: 5
 
   web:
     build: .
@@ -19,6 +25,7 @@ services:
     volumes:
       - .:/app
     ports:
-      - "8000:8000"
+      - "8001:8000"
     depends_on:
-      - postgres_db
+      postgres_db:
+        condition: service_healthy
