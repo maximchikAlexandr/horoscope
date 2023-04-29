@@ -2,11 +2,11 @@
 # Horoscope
 ## About project
 
-Project `Horoscope` is a web application designed to help users receive personalized horoscopes every day.
-This project written in Python using the `Django` framework.
+Project **Horoscope** is a web application designed to help users receive personalized horoscopes 
+every day. This project written in Python using the *Django* framework.
 
-For installation using the `Docker`, the project contains two containers: the Django application 
-and the `PostgreSQL` database.
+For installation using the *Docker*, the project contains two containers: the Django application 
+and the *PostgreSQL* database.
 
 
 ## Installation
