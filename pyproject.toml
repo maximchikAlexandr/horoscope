@@ -18,6 +18,7 @@ sqlparse = "0.4.3"
 urllib3 = "1.26.14"
 xmltodict = "0.13.0"
 django-environ = "^0.10.0"
+pytest-django = "^4.5.2"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -26,3 +27,17 @@ prospector = "^1.9.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "horoscope_project.settings"
+python_files = [
+    "tests.py",
+    "test*.py",
+    "*_tests.py"
+]
+addopts = [
+    "--nomigrations",
+    "--create-db",
+    "-p no:warnings"
+]

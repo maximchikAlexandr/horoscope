@@ -13,6 +13,3 @@ pyflakes:
 
 ignore-patterns:
   - .*migrations
-
-ignore-paths:
-  - db
