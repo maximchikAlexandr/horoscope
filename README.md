@@ -2,8 +2,6 @@
 
 ## Installation
 
-Install the dependencies and devDependencies and start the server.
-
 Clone the repository from GitHub:
 
 ```sh
