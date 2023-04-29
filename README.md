@@ -1,5 +1,12 @@
 
 # Horoscope
+## About project
+
+Project `Horoscope` is a web application designed to help users receive personalized horoscopes every day.
+This project written in Python using the `Django` framework.
+For installation using the `Docker`, the project contains two containers: the Django application 
+and the `PostgreSQL` database.
+
 
 ## Installation
 
@@ -35,3 +42,5 @@ Create and start the docker containers:
 ```sh
 docker compose up -d
 ```
+
+Open up the browser and navigate to the main page of the project at http://localhost:8000/.
