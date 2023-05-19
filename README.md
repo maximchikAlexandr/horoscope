@@ -27,15 +27,18 @@ nano .env
 and fill it with the following environment variables:
 
 ```sh
-DB_ENGINE='django.db.backends.postgresql_psycopg2'
-POSTGRES_DB=some_database
-POSTGRES_USER=postgres
-POSTGRES_PASSWORD=some_password
-DB_HOST=localhost
-DB_PORT=some_port_in_container
-DB_OUT_PORT=some_port_out_container
+# Django parameters
 DEBUG=True
-DJANGO_SECRET_KEY=some_secret_key
+DJANGO_SECRET_KEY="the_key_used_for_encryption"
+
+# database parameters
+DB_ENGINE="django.db.backends.postgresql_psycopg2"
+POSTGRES_DB="database_name" 
+POSTGRES_USER="your_database_username"
+POSTGRES_PASSWORD="your_database_password"
+DB_HOST="your_database_host"
+DB_PORT="port_of_your_database_in_container"
+DB_OUT_PORT="outer_port_of_your_database"
 ```
 
 Create and start the docker containers:
